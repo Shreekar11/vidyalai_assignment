@@ -69,7 +69,7 @@ const Post = ({ post }) => {
   const handleNextClick = () => {
     if (carouselRef.current) {
       carouselRef.current.scrollBy({
-        left: 50,
+        left: 300,
         behavior: 'smooth',
       });
     }
@@ -78,7 +78,7 @@ const Post = ({ post }) => {
   const handlePrevClick = () => {
     if (carouselRef.current) {
       carouselRef.current.scrollBy({
-        left: -70,
+        left: -300,
         behavior: 'smooth',
       });
     }
@@ -86,11 +86,61 @@ const Post = ({ post }) => {
 
   return (
     <PostContainer>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'start',
+          alignItems: 'center',
+          gap: '8px',
+          padding: '15px',
+        }}
+      >
+        <div
+          style={{
+            width: '30px',
+            height: '30px',
+            backgroundColor: '#ccc',
+            borderRadius: '50%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            fontSize: '16px',
+            fontWeight: 'bold',
+            color: '#fff',
+          }}
+        >
+          LG
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '2px',
+          }}
+        >
+          <div
+            style={{
+              fontSize: '14px',
+              fontWeight: 'bold',
+            }}
+          >
+            Leanne Graham
+          </div>
+          <div
+            style={{
+              fontSize: '12px',
+              color: '#888',
+            }}
+          >
+            Sincere@april.biz
+          </div>
+        </div>
+      </div>
       <CarouselContainer>
         <Carousel ref={carouselRef}>
           {post.images.map((image, index) => (
             <CarouselItem key={index}>
-              <Image src={image.url} alt={post.title} />
+              <Image src={image.thumbnailUrl} alt={post.title} />
             </CarouselItem>
           ))}
         </Carousel>
